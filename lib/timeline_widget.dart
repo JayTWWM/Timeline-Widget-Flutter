@@ -1,7 +1,8 @@
-library timeline_widget;
+library timeline_view;
 
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class TimelineView extends StatefulWidget {
   List<Widget> image;
@@ -13,6 +14,8 @@ class TimelineView extends StatefulWidget {
   Color lineColor;
   Color imageBorderColor;
   double lineWidth;
+  ScrollController scrollController;
+  // Axis scrollDirection;
 
   TimelineView(
       {@required this.image,
@@ -21,6 +24,8 @@ class TimelineView extends StatefulWidget {
       @required this.align,
       @required this.children,
       @required this.width,
+      this.scrollController,
+      // this.scrollDirection = Axis.vertical,
       this.lineColor = Colors.black,
       this.imageBorderColor = Colors.black,
       this.lineWidth = 4});
@@ -33,6 +38,9 @@ class _TimelineViewState extends State<TimelineView> {
   @override
   void initState() {
     super.initState();
+    if (widget.scrollController == null) {
+      widget.scrollController = ScrollController();
+    }
   }
 
   double containHeight;
@@ -41,10 +49,11 @@ class _TimelineViewState extends State<TimelineView> {
   Widget build(BuildContext context) {
     containHeight = (widget.height - widget.imageHeight) / 2;
 
-    return ListView.builder(
-        itemCount: min(widget.children.length, widget.image.length),
-        itemBuilder: (BuildContext ctxt, int index) {
-          return new Container(
+    return ListView(
+      // scrollDirection: widget.scrollDirection,
+      controller: widget.scrollController,
+      children: widget.children
+          .map((Widget child) => new Container(
               width: widget.width,
               height: widget.height,
               child: Row(
@@ -54,7 +63,7 @@ class _TimelineViewState extends State<TimelineView> {
                 children: [
                   widget.align != TimelineAlign.rightAlign
                       ? Center(
-                          child: widget.children[index],
+                          child: child,
                         )
                       : SizedBox.shrink(),
                   Column(
@@ -80,7 +89,8 @@ class _TimelineViewState extends State<TimelineView> {
                                 BorderRadius.circular(widget.imageHeight / 2),
                             child: FittedBox(
                                 fit: BoxFit.fitHeight,
-                                child: widget.image[index]),
+                                child: widget
+                                    .image[widget.children.indexOf(child)]),
                           ),
                         ),
                       ),
@@ -93,12 +103,13 @@ class _TimelineViewState extends State<TimelineView> {
                   ),
                   widget.align != TimelineAlign.leftAlign
                       ? Center(
-                          child: widget.children[index],
+                          child: child,
                         )
                       : SizedBox.shrink(),
                 ],
-              ));
-        });
+              )))
+          .toList(),
+    );
   }
 }
 
@@ -113,6 +124,8 @@ class TimelineViewCenter extends StatefulWidget {
   double width;
   double lineWidth;
   MainAxisAlignment horizontalAxisAlignment;
+  ScrollController scrollController;
+  // Axis scrollDirection;
 
   TimelineViewCenter(
       {@required this.image,
@@ -121,6 +134,8 @@ class TimelineViewCenter extends StatefulWidget {
       @required this.leftChildren,
       @required this.rightChildren,
       @required this.width,
+      this.scrollController,
+      // this.scrollDirection = Axis.vertical,
       this.horizontalAxisAlignment = MainAxisAlignment.center,
       this.lineColor = Colors.black,
       this.imageBorderColor = Colors.black,
@@ -134,6 +149,9 @@ class _TimelineViewCenterState extends State<TimelineViewCenter> {
   @override
   void initState() {
     super.initState();
+    if (widget.scrollController == null) {
+      widget.scrollController = ScrollController();
+    }
   }
 
   double containHeight;
@@ -142,12 +160,11 @@ class _TimelineViewCenterState extends State<TimelineViewCenter> {
   Widget build(BuildContext context) {
     containHeight = (widget.height - widget.imageHeight) / 2;
 
-    return ListView.builder(
-        itemCount: min(
-            min(widget.leftChildren.length, widget.rightChildren.length),
-            widget.image.length),
-        itemBuilder: (BuildContext ctxt, int index) {
-          return new Container(
+    return ListView(
+      // scrollDirection: widget.scrollDirection,
+      controller: widget.scrollController,
+      children: widget.image
+          .map((Widget imageChild) => new Container(
               width: widget.width,
               height: widget.height,
               child: Row(
@@ -155,7 +172,9 @@ class _TimelineViewCenterState extends State<TimelineViewCenter> {
                 children: [
                   Container(
                     width: (widget.width - widget.imageHeight) / 2,
-                    child: Center(child: widget.leftChildren[index]),
+                    child: Center(
+                        child: widget
+                            .leftChildren[widget.image.indexOf(imageChild)]),
                   ),
                   Container(
                     width: widget.imageHeight,
@@ -181,8 +200,7 @@ class _TimelineViewCenterState extends State<TimelineViewCenter> {
                               borderRadius:
                                   BorderRadius.circular(widget.imageHeight / 2),
                               child: FittedBox(
-                                  fit: BoxFit.fitHeight,
-                                  child: widget.image[index]),
+                                  fit: BoxFit.fitHeight, child: imageChild),
                             ),
                           ),
                         ),
@@ -196,10 +214,13 @@ class _TimelineViewCenterState extends State<TimelineViewCenter> {
                   ),
                   Container(
                       width: (widget.width - widget.imageHeight) / 2,
-                      child: Center(child: widget.rightChildren[index])),
+                      child: Center(
+                          child: widget.rightChildren[
+                              widget.image.indexOf(imageChild)])),
                 ],
-              ));
-        });
+              )))
+          .toList(),
+    );
   }
 }
 

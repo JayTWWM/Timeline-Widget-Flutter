@@ -67,6 +67,9 @@ class _MyHomePageState extends State<MyHomePage> {
     return Container(
       padding: EdgeInsets.fromLTRB(0, 0, 30, 0),
       child: TimelineView(
+        // scrollDirection: Axis.horizontal,
+        scrollController:
+            ScrollController(initialScrollOffset: 300, keepScrollOffset: true),
         align: TimelineAlign.leftAlign,
         lineWidth: 4,
         lineColor: Colors.deepOrange,
@@ -122,6 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Container(
       padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
       child: TimelineView(
+        // scrollDirection: Axis.horizontal,
         align: TimelineAlign.rightAlign,
         lineWidth: 4,
         lineColor: Colors.deepOrange,
