@@ -1,6 +1,4 @@
 library timeline_view;
-
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
@@ -44,6 +42,7 @@ class _TimelineViewState extends State<TimelineView> {
   }
 
   double containHeight;
+  int _currentIndex = -1;
 
   @override
   Widget build(BuildContext context) {
@@ -52,63 +51,63 @@ class _TimelineViewState extends State<TimelineView> {
     return ListView(
       // scrollDirection: widget.scrollDirection,
       controller: widget.scrollController,
-      children: widget.children
-          .map((Widget child) => new Container(
-              width: widget.width,
-              height: widget.height,
-              child: Row(
-                mainAxisAlignment: widget.align == TimelineAlign.leftAlign
-                    ? MainAxisAlignment.end
-                    : MainAxisAlignment.start,
-                children: [
-                  widget.align != TimelineAlign.rightAlign
-                      ? Center(
-                          child: child,
-                        )
-                      : SizedBox.shrink(),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        color: widget.lineColor,
-                        height: containHeight,
-                        width: widget.lineWidth,
-                      ),
-                      Center(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                                width: 2, color: widget.imageBorderColor),
-                            borderRadius:
-                                BorderRadius.circular(widget.imageHeight / 2),
-                          ),
-                          height: widget.imageHeight,
-                          width: widget.imageHeight,
-                          child: ClipRRect(
-                            borderRadius:
-                                BorderRadius.circular(widget.imageHeight / 2),
-                            child: FittedBox(
-                                fit: BoxFit.fitHeight,
-                                child: widget
-                                    .image[widget.children.indexOf(child)]),
-                          ),
+      children: widget.children.map((Widget child) {
+        _currentIndex++;
+        return new Container(
+            width: widget.width,
+            height: widget.height,
+            child: Row(
+              mainAxisAlignment: widget.align == TimelineAlign.leftAlign
+                  ? MainAxisAlignment.end
+                  : MainAxisAlignment.start,
+              children: [
+                widget.align != TimelineAlign.rightAlign
+                    ? Center(
+                        child: child,
+                      )
+                    : SizedBox.shrink(),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      color: widget.lineColor,
+                      height: containHeight,
+                      width: widget.lineWidth,
+                    ),
+                    Center(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                              width: 2, color: widget.imageBorderColor),
+                          borderRadius:
+                              BorderRadius.circular(widget.imageHeight / 2),
+                        ),
+                        height: widget.imageHeight,
+                        width: widget.imageHeight,
+                        child: ClipRRect(
+                          borderRadius:
+                              BorderRadius.circular(widget.imageHeight / 2),
+                          child: FittedBox(
+                              fit: BoxFit.fitHeight,
+                              child: widget.image[_currentIndex]),
                         ),
                       ),
-                      Container(
-                        color: widget.lineColor,
-                        height: containHeight,
-                        width: widget.lineWidth,
-                      ),
-                    ],
-                  ),
-                  widget.align != TimelineAlign.leftAlign
-                      ? Center(
-                          child: child,
-                        )
-                      : SizedBox.shrink(),
-                ],
-              )))
-          .toList(),
+                    ),
+                    Container(
+                      color: widget.lineColor,
+                      height: containHeight,
+                      width: widget.lineWidth,
+                    ),
+                  ],
+                ),
+                widget.align != TimelineAlign.leftAlign
+                    ? Center(
+                        child: child,
+                      )
+                    : SizedBox.shrink(),
+              ],
+            ));
+      }).toList(),
     );
   }
 }
@@ -155,6 +154,7 @@ class _TimelineViewCenterState extends State<TimelineViewCenter> {
   }
 
   double containHeight;
+  int _currentIndex = -1;
 
   @override
   Widget build(BuildContext context) {
@@ -163,63 +163,60 @@ class _TimelineViewCenterState extends State<TimelineViewCenter> {
     return ListView(
       // scrollDirection: widget.scrollDirection,
       controller: widget.scrollController,
-      children: widget.image
-          .map((Widget imageChild) => new Container(
-              width: widget.width,
-              height: widget.height,
-              child: Row(
-                mainAxisAlignment: widget.horizontalAxisAlignment,
-                children: [
-                  Container(
-                    width: (widget.width - widget.imageHeight) / 2,
-                    child: Center(
-                        child: widget
-                            .leftChildren[widget.image.indexOf(imageChild)]),
-                  ),
-                  Container(
-                    width: widget.imageHeight,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          color: widget.lineColor,
-                          height: containHeight,
-                          width: widget.lineWidth,
-                        ),
-                        Center(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                  width: 2, color: widget.imageBorderColor),
-                              borderRadius:
-                                  BorderRadius.circular(widget.imageHeight / 2),
-                            ),
-                            height: widget.imageHeight,
-                            width: widget.imageHeight,
-                            child: ClipRRect(
-                              borderRadius:
-                                  BorderRadius.circular(widget.imageHeight / 2),
-                              child: FittedBox(
-                                  fit: BoxFit.fitHeight, child: imageChild),
-                            ),
+      children: widget.image.map((Widget imageChild) {
+        _currentIndex++;
+        return new Container(
+            width: widget.width,
+            height: widget.height,
+            child: Row(
+              mainAxisAlignment: widget.horizontalAxisAlignment,
+              children: [
+                Container(
+                  width: (widget.width - widget.imageHeight) / 2,
+                  child: Center(child: widget.leftChildren[_currentIndex]),
+                ),
+                Container(
+                  width: widget.imageHeight,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        color: widget.lineColor,
+                        height: containHeight,
+                        width: widget.lineWidth,
+                      ),
+                      Center(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                width: 2, color: widget.imageBorderColor),
+                            borderRadius:
+                                BorderRadius.circular(widget.imageHeight / 2),
+                          ),
+                          height: widget.imageHeight,
+                          width: widget.imageHeight,
+                          child: ClipRRect(
+                            borderRadius:
+                                BorderRadius.circular(widget.imageHeight / 2),
+                            child: FittedBox(
+                                fit: BoxFit.fitHeight, child: imageChild),
                           ),
                         ),
-                        Container(
-                          color: widget.lineColor,
-                          height: containHeight,
-                          width: widget.lineWidth,
-                        ),
-                      ],
-                    ),
+                      ),
+                      Container(
+                        color: widget.lineColor,
+                        height: containHeight,
+                        width: widget.lineWidth,
+                      ),
+                    ],
                   ),
-                  Container(
-                      width: (widget.width - widget.imageHeight) / 2,
-                      child: Center(
-                          child: widget.rightChildren[
-                              widget.image.indexOf(imageChild)])),
-                ],
-              )))
-          .toList(),
+                ),
+                Container(
+                    width: (widget.width - widget.imageHeight) / 2,
+                    child: Center(child: widget.rightChildren[_currentIndex])),
+              ],
+            ));
+      }).toList(),
     );
   }
 }

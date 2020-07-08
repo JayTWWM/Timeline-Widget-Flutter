@@ -27,6 +27,8 @@ To use this package :
 
 ```dart
 TimelineView(
+  scrollController:
+      ScrollController(initialScrollOffset: 300, keepScrollOffset: true),
   align: TimelineAlign.leftAlign,
   lineWidth: 4,
   lineColor: Colors.deepOrange,
@@ -81,6 +83,8 @@ TimelineView(
 
 ```dart
 TimelineViewCenter(
+  scrollController:
+      ScrollController(initialScrollOffset: 200, keepScrollOffset: true),
   horizontalAxisAlignment: MainAxisAlignment.spaceEvenly,
   lineWidth: 4,
   lineColor: Colors.deepOrange,
@@ -179,6 +183,8 @@ TimelineViewCenter(
 
 ```dart
 TimelineView(
+  scrollController:
+      ScrollController(initialScrollOffset: 200, keepScrollOffset: true),
   align: TimelineAlign.rightAlign,
   lineWidth: 4,
   lineColor: Colors.deepOrange,
@@ -331,6 +337,8 @@ class _MyHomePageState extends State<MyHomePage> {
     return Container(
       padding: EdgeInsets.fromLTRB(0, 0, 30, 0),
       child: TimelineView(
+        scrollController:
+            ScrollController(initialScrollOffset: 300, keepScrollOffset: true),
         align: TimelineAlign.leftAlign,
         lineWidth: 4,
         lineColor: Colors.deepOrange,
@@ -386,6 +394,8 @@ class _MyHomePageState extends State<MyHomePage> {
     return Container(
       padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
       child: TimelineView(
+        scrollController:
+            ScrollController(initialScrollOffset: 200, keepScrollOffset: true),
         align: TimelineAlign.rightAlign,
         lineWidth: 4,
         lineColor: Colors.deepOrange,
@@ -439,6 +449,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _timelineviewCenter() {
     return TimelineViewCenter(
+      scrollController:
+          ScrollController(initialScrollOffset: 200, keepScrollOffset: true),
       horizontalAxisAlignment: MainAxisAlignment.spaceEvenly,
       lineWidth: 4,
       lineColor: Colors.deepOrange,

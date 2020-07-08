@@ -9,3 +9,7 @@ Added customizable scroll controller!
 ## [1.0.2] - July 8, 2020.
 
 Added customizable scroll controller!
+
+## [1.0.3] - July 8, 2020.
+
+Added customizable scroll controller!
