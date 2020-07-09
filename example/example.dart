@@ -38,14 +38,17 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 6,
       child: Scaffold(
           appBar: AppBar(
             bottom: TabBar(
               tabs: [
                 Tab(icon: Icon(Icons.arrow_forward)),
-                Tab(icon: Icon(Icons.arrow_downward)),
+                Tab(icon: Icon(Icons.vertical_align_center)),
                 Tab(icon: Icon(Icons.arrow_back)),
+                Tab(icon: Icon(Icons.vertical_align_top)),
+                Tab(icon: Icon(Icons.swap_horiz)),
+                Tab(icon: Icon(Icons.vertical_align_bottom)),
               ],
             ),
             title: Text(widget.title),
@@ -57,6 +60,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 _timelineviewRight(),
                 _timelineviewCenter(),
                 _timelineviewLeft(),
+                _timelineviewTop(),
+                _timelineviewCenterHorizontal(),
+                _timelineviewBottom()
               ],
             ),
           )),
@@ -68,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
       padding: EdgeInsets.fromLTRB(0, 0, 30, 0),
       child: TimelineView(
         scrollController:
-            ScrollController(initialScrollOffset: 300, keepScrollOffset: true),
+            ScrollController(initialScrollOffset: 0, keepScrollOffset: true),
         align: TimelineAlign.leftAlign,
         lineWidth: 4,
         lineColor: Colors.deepOrange,
@@ -120,12 +126,129 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  Widget _timelineviewTop() {
+    return Container(
+      padding: EdgeInsets.fromLTRB(0, 30, 0, 0),
+      child: TimelineView(
+        scrollDirection: Axis.horizontal,
+        scrollController:
+            ScrollController(initialScrollOffset: 0, keepScrollOffset: true),
+        align: TimelineAlign.topAlign,
+        lineWidth: 4,
+        lineColor: Colors.deepOrange,
+        imageBorderColor: Colors.deepOrange,
+        image: [
+          Container(
+              padding: EdgeInsets.all(15),
+              child: Image.asset("assets/pre-breakfast-image.png")),
+          Container(
+              padding: EdgeInsets.all(15),
+              child: Image.asset("assets/breakfast-image.png")),
+          Container(
+              padding: EdgeInsets.all(15),
+              child: Image.asset("assets/pre-lunch-image.png")),
+          Container(
+              padding: EdgeInsets.all(15),
+              child: Image.asset("assets/lunch-image.png")),
+          Container(
+              padding: EdgeInsets.all(15),
+              child: Image.asset("assets/evening-snack-image.png")),
+          Container(
+              padding: EdgeInsets.all(20),
+              child: Image.asset("assets/dinner-image.png")),
+        ],
+        height: MediaQuery.of(context).size.width,
+        width: 200,
+        imageHeight: 50,
+        children: [
+          Container(
+              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
+              child: _widgetWeather(20, 71, 31)),
+          Container(
+              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
+              child: _widgetWeather(15, 75, 55)),
+          Container(
+              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
+              child: _widgetWeather(25, 73, 30)),
+          Container(
+              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
+              child: _widgetWeather(22, 65, 35)),
+          Container(
+              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
+              child: _widgetWeather(21, 55, 32)),
+          Container(
+              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
+              child: _widgetWeather(20, 65, 35)),
+        ],
+      ),
+    );
+  }
+
+  Widget _timelineviewBottom() {
+    return Container(
+      padding: EdgeInsets.fromLTRB(0, 0, 0, 30),
+      child: TimelineView(
+        scrollDirection: Axis.horizontal,
+        scrollController:
+            ScrollController(initialScrollOffset: 0, keepScrollOffset: true),
+        align: TimelineAlign.bottomAlign,
+        lineWidth: 4,
+        lineColor: Colors.deepOrange,
+        imageBorderColor: Colors.deepOrange,
+        image: [
+          Container(
+              padding: EdgeInsets.all(15),
+              child: Image.asset("assets/pre-breakfast-image.png")),
+          Container(
+              padding: EdgeInsets.all(15),
+              child: Image.asset("assets/breakfast-image.png")),
+          Container(
+              padding: EdgeInsets.all(15),
+              child: Image.asset("assets/pre-lunch-image.png")),
+          Container(
+              padding: EdgeInsets.all(15),
+              child: Image.asset("assets/lunch-image.png")),
+          Container(
+              padding: EdgeInsets.all(15),
+              child: Image.asset("assets/evening-snack-image.png")),
+          Container(
+              padding: EdgeInsets.all(20),
+              child: Image.asset("assets/dinner-image.png")),
+        ],
+        height: MediaQuery.of(context).size.width,
+        width: 200,
+        imageHeight: 50,
+        children: [
+          Container(
+              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
+              child: _widgetWeather(20, 71, 31)),
+          Container(
+              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
+              child: _widgetWeather(15, 75, 55)),
+          Container(
+              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
+              child: _widgetWeather(25, 73, 30)),
+          Container(
+              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
+              child: _widgetWeather(22, 65, 35)),
+          Container(
+              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
+              child: _widgetWeather(21, 55, 32)),
+          Container(
+              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
+              child: _widgetWeather(20, 65, 35)),
+        ],
+      ),
+    );
+  }
+
   Widget _timelineviewRight() {
     return Container(
-      padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+      padding: EdgeInsets.fromLTRB(30, 30, 0, 0),
       child: TimelineView(
+        scrollDirection: Axis.vertical,
         scrollController:
-            ScrollController(initialScrollOffset: 200, keepScrollOffset: true),
+            ScrollController(initialScrollOffset: 0, keepScrollOffset: true),
         align: TimelineAlign.rightAlign,
         lineWidth: 4,
         lineColor: Colors.deepOrange,
@@ -177,10 +300,109 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  Widget _timelineviewCenterHorizontal() {
+    return TimelineViewCenter(
+      scrollDirection: Axis.horizontal,
+      scrollController:
+          ScrollController(initialScrollOffset: 0, keepScrollOffset: true),
+      horizontalAxisAlignment: MainAxisAlignment.spaceEvenly,
+      lineWidth: 4,
+      lineColor: Colors.deepOrange,
+      imageBorderColor: Colors.deepOrange,
+      image: [
+        Container(
+            padding: EdgeInsets.all(15),
+            child: Image.asset("assets/pre-breakfast-image.png")),
+        Container(
+            padding: EdgeInsets.all(15),
+            child: Image.asset("assets/breakfast-image.png")),
+        Container(
+            padding: EdgeInsets.all(15),
+            child: Image.asset("assets/pre-lunch-image.png")),
+        Container(
+            padding: EdgeInsets.all(15),
+            child: Image.asset("assets/lunch-image.png")),
+        Container(
+            padding: EdgeInsets.all(15),
+            child: Image.asset("assets/evening-snack-image.png")),
+        Container(
+            padding: EdgeInsets.all(20),
+            child: Image.asset("assets/dinner-image.png")),
+      ],
+      height: MediaQuery.of(context).size.width,
+      width: 200,
+      imageHeight: 50,
+      rightChildren: [
+        _widgetWeather(20, 71, 31),
+        _widgetWeather(15, 75, 55),
+        _widgetWeather(25, 73, 30),
+        _widgetWeather(22, 65, 35),
+        _widgetWeather(21, 55, 32),
+        _widgetWeather(20, 65, 35),
+      ],
+      leftChildren: [
+        Container(
+          color: Colors.deepOrangeAccent,
+          margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+          padding: EdgeInsets.all(5),
+          child: Text(
+            'Dawn',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          ),
+        ),
+        Container(
+          color: Colors.deepOrangeAccent,
+          margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+          padding: EdgeInsets.all(5),
+          child: Text(
+            'Morning',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          ),
+        ),
+        Container(
+          color: Colors.deepOrangeAccent,
+          margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+          padding: EdgeInsets.all(5),
+          child: Text(
+            'Noon',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          ),
+        ),
+        Container(
+          color: Colors.deepOrangeAccent,
+          margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+          padding: EdgeInsets.all(5),
+          child: Text(
+            'Afternoon',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          ),
+        ),
+        Container(
+          color: Colors.deepOrangeAccent,
+          margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+          padding: EdgeInsets.all(5),
+          child: Text(
+            'Evening',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          ),
+        ),
+        Container(
+          color: Colors.deepOrangeAccent,
+          margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+          padding: EdgeInsets.all(5),
+          child: Text(
+            'Dusk',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          ),
+        ),
+      ],
+    );
+  }
+
   Widget _timelineviewCenter() {
     return TimelineViewCenter(
       scrollController:
-          ScrollController(initialScrollOffset: 200, keepScrollOffset: true),
+          ScrollController(initialScrollOffset: 0, keepScrollOffset: true),
       horizontalAxisAlignment: MainAxisAlignment.spaceEvenly,
       lineWidth: 4,
       lineColor: Colors.deepOrange,
