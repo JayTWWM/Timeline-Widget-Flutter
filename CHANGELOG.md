@@ -21,3 +21,7 @@ Added an option of horizontal timelines as well!
 ## [1.0.5] - July 9, 2020.
 
 Added an option of horizontal timelines as well!
+
+## [1.0.6] - July 9, 2020.
+
+Added an option of horizontal timelines as well!

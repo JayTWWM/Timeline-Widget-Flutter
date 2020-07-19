@@ -127,7 +127,7 @@ class _TimelineViewState extends State<TimelineView> {
               ));
         }).toList(),
       );
-    } else if (widget.scrollDirection == Axis.horizontal) {
+    } else {
       containHeight = (widget.width - widget.imageHeight) / 2;
       return ListView(
         scrollDirection: widget.scrollDirection,
@@ -323,7 +323,7 @@ class _TimelineViewCenterState extends State<TimelineViewCenter> {
               ));
         }).toList(),
       );
-    } else if (widget.scrollDirection == Axis.horizontal) {
+    } else {
       containHeight = (widget.width - widget.imageHeight) / 2;
 
       return ListView(
