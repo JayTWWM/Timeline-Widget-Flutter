@@ -4,8 +4,8 @@ This pub creates beautiful timeline views in six formats (left, right, center (h
 
 ## Screenshots
 
-<img src="https://drive.google.com/file/d/12jpbUKCEHou_TrZbSx1O8B2DHVnJfx_o/view?usp=sharing" height="300em" /> <img src="https://drive.google.com/file/d/12WHseblyOSzVWrgwB-v07gZW_51HA3hR/view?usp=sharing" height="300em" /> <img src="https://drive.google.com/file/d/12VP7uSpoNlyna0wzOPd-jdHsO8urH7mn/view?usp=sharing" height="300em" /> <br>
-<img src="https://drive.google.com/file/d/13AK2W97uB_L3LE1OEeckTqKfHh1lhk6s/view?usp=sharing" height="300em" /> <img src="https://drive.google.com/file/d/139P-WIDR529HqFJ1IUFTPgMzXlCqXrtk/view?usp=sharing" height="300em" /> <img src="https://drive.google.com/file/d/138fywzZWMm7J_WDIcKT6enfDfWtUCVkP/view?usp=sharing" height="300em" />
+<img src="ss1.jpg" height="300em" /> <img src="ss2.jpg" height="300em" /> <img src="ss3.jpg" height="300em" /> <br>
+<img src="ss4.jpg" height="300em" /> <img src="ss5.jpg" height="300em" /> <img src="ss6.jpg" height="300em" />
 
 ## Usage
 
