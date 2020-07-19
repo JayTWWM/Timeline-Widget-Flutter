@@ -4,17 +4,38 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 class TimelineView extends StatefulWidget {
-  List<Widget> image;
-  double height;
-  double width;
-  double imageHeight;
-  int align;
-  List<Widget> children;
-  Color lineColor;
-  Color imageBorderColor;
-  double lineWidth;
-  ScrollController scrollController;
-  Axis scrollDirection;
+  /// List of images
+  final List<Widget> image;
+
+  /// Height of a list item
+  final double height;
+
+  /// Width of a list item
+  final double width;
+
+  /// Height of the image
+  final double imageHeight;
+
+  /// Alignment of the timeline eg: TimelineAlign.Right
+  final int align;
+
+  /// List of children widgets
+  final List<Widget> children;
+
+  /// Colour of timeline
+  final Color lineColor;
+
+  /// Color of image boreder
+  final Color imageBorderColor;
+
+  /// Width of timeline
+  final double lineWidth;
+
+  /// ScrollController
+  final ScrollController scrollController;
+
+  /// Axis Direction
+  final Axis scrollDirection;
 
   TimelineView(
       {@required this.image,
@@ -23,7 +44,7 @@ class TimelineView extends StatefulWidget {
       this.align = 1,
       @required this.children,
       @required this.width,
-      this.scrollController,
+      @required this.scrollController,
       this.scrollDirection = Axis.vertical,
       this.lineColor = Colors.black,
       this.imageBorderColor = Colors.black,
@@ -37,9 +58,6 @@ class _TimelineViewState extends State<TimelineView> {
   @override
   void initState() {
     super.initState();
-    if (widget.scrollController == null) {
-      widget.scrollController = ScrollController();
-    }
   }
 
   double containHeight;
@@ -177,18 +195,41 @@ class _TimelineViewState extends State<TimelineView> {
 }
 
 class TimelineViewCenter extends StatefulWidget {
-  List<Widget> image;
-  double height;
-  double imageHeight;
-  List<Widget> leftChildren;
-  List<Widget> rightChildren;
-  Color lineColor;
-  Color imageBorderColor;
-  double width;
-  double lineWidth;
-  MainAxisAlignment horizontalAxisAlignment;
-  ScrollController scrollController;
-  Axis scrollDirection;
+  /// List of images in timeline
+  final List<Widget> image;
+
+  /// Height of children widget
+  final double height;
+
+  /// Height of image
+  final double imageHeight;
+
+  /// List of left children widgets
+  final List<Widget> leftChildren;
+
+  /// List of right children widgets
+  final List<Widget> rightChildren;
+
+  /// Color of timeline
+  final Color lineColor;
+
+  /// Image Border Color
+  final Color imageBorderColor;
+
+  /// Width of children widget
+  final double width;
+
+  /// Width of timeline
+  final double lineWidth;
+
+  /// Main AxisAlignment of row
+  final MainAxisAlignment horizontalAxisAlignment;
+
+  /// ScrollController
+  final ScrollController scrollController;
+
+  /// Axis Direction
+  final Axis scrollDirection;
 
   TimelineViewCenter(
       {@required this.image,
@@ -197,7 +238,7 @@ class TimelineViewCenter extends StatefulWidget {
       @required this.leftChildren,
       @required this.rightChildren,
       @required this.width,
-      this.scrollController,
+      @required this.scrollController,
       this.scrollDirection = Axis.vertical,
       this.horizontalAxisAlignment = MainAxisAlignment.center,
       this.lineColor = Colors.black,
@@ -212,9 +253,6 @@ class _TimelineViewCenterState extends State<TimelineViewCenter> {
   @override
   void initState() {
     super.initState();
-    if (widget.scrollController == null) {
-      widget.scrollController = ScrollController();
-    }
   }
 
   double containHeight;

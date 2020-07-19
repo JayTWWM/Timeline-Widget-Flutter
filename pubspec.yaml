@@ -1,6 +1,6 @@
 name: timeline_widget
 description: This pub creates beautiful timeline views in six formats (left, right, center (horizontal and vertical) , top, bottom) with customizable image, widgets, color, constraints etc.
-version: 1.0.4
+version: 1.0.5
 authors:
   - Jay Mehta <jaymehta262001@gmail.com>
   - Vaidehi Vatsaraj <vvatsaraj0904@gmail.com>
