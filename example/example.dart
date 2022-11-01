@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -73,54 +73,29 @@ class _MyHomePageState extends State<MyHomePage> {
     return Container(
       padding: EdgeInsets.fromLTRB(0, 0, 30, 0),
       child: TimelineView(
-        scrollController:
-            ScrollController(initialScrollOffset: 0, keepScrollOffset: true),
+        scrollController: ScrollController(initialScrollOffset: 0, keepScrollOffset: true),
         align: TimelineAlign.leftAlign,
         lineWidth: 4,
         lineColor: Colors.deepOrange,
         imageBorderColor: Colors.deepOrange,
         image: [
-          Container(
-              padding: EdgeInsets.all(15),
-              child: Image.asset("assets/pre-breakfast-image.png")),
-          Container(
-              padding: EdgeInsets.all(15),
-              child: Image.asset("assets/breakfast-image.png")),
-          Container(
-              padding: EdgeInsets.all(15),
-              child: Image.asset("assets/pre-lunch-image.png")),
-          Container(
-              padding: EdgeInsets.all(15),
-              child: Image.asset("assets/lunch-image.png")),
-          Container(
-              padding: EdgeInsets.all(15),
-              child: Image.asset("assets/evening-snack-image.png")),
-          Container(
-              padding: EdgeInsets.all(20),
-              child: Image.asset("assets/dinner-image.png")),
+          Container(padding: EdgeInsets.all(15), child: Image.asset("assets/pre-breakfast-image.png")),
+          Container(padding: EdgeInsets.all(15), child: Image.asset("assets/breakfast-image.png")),
+          Container(padding: EdgeInsets.all(15), child: Image.asset("assets/pre-lunch-image.png")),
+          Container(padding: EdgeInsets.all(15), child: Image.asset("assets/lunch-image.png")),
+          Container(padding: EdgeInsets.all(15), child: Image.asset("assets/evening-snack-image.png")),
+          Container(padding: EdgeInsets.all(20), child: Image.asset("assets/dinner-image.png")),
         ],
         height: 150,
         width: MediaQuery.of(context).size.width,
         imageHeight: 50,
         children: [
-          Container(
-              margin: EdgeInsets.fromLTRB(0, 0, 20, 0),
-              child: _widgetWeather(20, 71, 31)),
-          Container(
-              margin: EdgeInsets.fromLTRB(0, 0, 20, 0),
-              child: _widgetWeather(15, 75, 55)),
-          Container(
-              margin: EdgeInsets.fromLTRB(0, 0, 20, 0),
-              child: _widgetWeather(25, 73, 30)),
-          Container(
-              margin: EdgeInsets.fromLTRB(0, 0, 20, 0),
-              child: _widgetWeather(22, 65, 35)),
-          Container(
-              margin: EdgeInsets.fromLTRB(0, 0, 20, 0),
-              child: _widgetWeather(21, 55, 32)),
-          Container(
-              margin: EdgeInsets.fromLTRB(0, 0, 20, 0),
-              child: _widgetWeather(20, 65, 35)),
+          Container(margin: EdgeInsets.fromLTRB(0, 0, 20, 0), child: _widgetWeather(20, 71, 31)),
+          Container(margin: EdgeInsets.fromLTRB(0, 0, 20, 0), child: _widgetWeather(15, 75, 55)),
+          Container(margin: EdgeInsets.fromLTRB(0, 0, 20, 0), child: _widgetWeather(25, 73, 30)),
+          Container(margin: EdgeInsets.fromLTRB(0, 0, 20, 0), child: _widgetWeather(22, 65, 35)),
+          Container(margin: EdgeInsets.fromLTRB(0, 0, 20, 0), child: _widgetWeather(21, 55, 32)),
+          Container(margin: EdgeInsets.fromLTRB(0, 0, 20, 0), child: _widgetWeather(20, 65, 35)),
         ],
       ),
     );
@@ -131,54 +106,29 @@ class _MyHomePageState extends State<MyHomePage> {
       padding: EdgeInsets.fromLTRB(0, 30, 0, 0),
       child: TimelineView(
         scrollDirection: Axis.horizontal,
-        scrollController:
-            ScrollController(initialScrollOffset: 0, keepScrollOffset: true),
+        scrollController: ScrollController(initialScrollOffset: 0, keepScrollOffset: true),
         align: TimelineAlign.topAlign,
         lineWidth: 4,
         lineColor: Colors.deepOrange,
         imageBorderColor: Colors.deepOrange,
         image: [
-          Container(
-              padding: EdgeInsets.all(15),
-              child: Image.asset("assets/pre-breakfast-image.png")),
-          Container(
-              padding: EdgeInsets.all(15),
-              child: Image.asset("assets/breakfast-image.png")),
-          Container(
-              padding: EdgeInsets.all(15),
-              child: Image.asset("assets/pre-lunch-image.png")),
-          Container(
-              padding: EdgeInsets.all(15),
-              child: Image.asset("assets/lunch-image.png")),
-          Container(
-              padding: EdgeInsets.all(15),
-              child: Image.asset("assets/evening-snack-image.png")),
-          Container(
-              padding: EdgeInsets.all(20),
-              child: Image.asset("assets/dinner-image.png")),
+          Container(padding: EdgeInsets.all(15), child: Image.asset("assets/pre-breakfast-image.png")),
+          Container(padding: EdgeInsets.all(15), child: Image.asset("assets/breakfast-image.png")),
+          Container(padding: EdgeInsets.all(15), child: Image.asset("assets/pre-lunch-image.png")),
+          Container(padding: EdgeInsets.all(15), child: Image.asset("assets/lunch-image.png")),
+          Container(padding: EdgeInsets.all(15), child: Image.asset("assets/evening-snack-image.png")),
+          Container(padding: EdgeInsets.all(20), child: Image.asset("assets/dinner-image.png")),
         ],
         height: MediaQuery.of(context).size.width,
         width: 200,
         imageHeight: 50,
         children: [
-          Container(
-              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
-              child: _widgetWeather(20, 71, 31)),
-          Container(
-              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
-              child: _widgetWeather(15, 75, 55)),
-          Container(
-              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
-              child: _widgetWeather(25, 73, 30)),
-          Container(
-              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
-              child: _widgetWeather(22, 65, 35)),
-          Container(
-              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
-              child: _widgetWeather(21, 55, 32)),
-          Container(
-              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
-              child: _widgetWeather(20, 65, 35)),
+          Container(margin: EdgeInsets.fromLTRB(20, 0, 0, 0), child: _widgetWeather(20, 71, 31)),
+          Container(margin: EdgeInsets.fromLTRB(20, 0, 0, 0), child: _widgetWeather(15, 75, 55)),
+          Container(margin: EdgeInsets.fromLTRB(20, 0, 0, 0), child: _widgetWeather(25, 73, 30)),
+          Container(margin: EdgeInsets.fromLTRB(20, 0, 0, 0), child: _widgetWeather(22, 65, 35)),
+          Container(margin: EdgeInsets.fromLTRB(20, 0, 0, 0), child: _widgetWeather(21, 55, 32)),
+          Container(margin: EdgeInsets.fromLTRB(20, 0, 0, 0), child: _widgetWeather(20, 65, 35)),
         ],
       ),
     );
@@ -189,54 +139,29 @@ class _MyHomePageState extends State<MyHomePage> {
       padding: EdgeInsets.fromLTRB(0, 0, 0, 30),
       child: TimelineView(
         scrollDirection: Axis.horizontal,
-        scrollController:
-            ScrollController(initialScrollOffset: 0, keepScrollOffset: true),
+        scrollController: ScrollController(initialScrollOffset: 0, keepScrollOffset: true),
         align: TimelineAlign.bottomAlign,
         lineWidth: 4,
         lineColor: Colors.deepOrange,
         imageBorderColor: Colors.deepOrange,
         image: [
-          Container(
-              padding: EdgeInsets.all(15),
-              child: Image.asset("assets/pre-breakfast-image.png")),
-          Container(
-              padding: EdgeInsets.all(15),
-              child: Image.asset("assets/breakfast-image.png")),
-          Container(
-              padding: EdgeInsets.all(15),
-              child: Image.asset("assets/pre-lunch-image.png")),
-          Container(
-              padding: EdgeInsets.all(15),
-              child: Image.asset("assets/lunch-image.png")),
-          Container(
-              padding: EdgeInsets.all(15),
-              child: Image.asset("assets/evening-snack-image.png")),
-          Container(
-              padding: EdgeInsets.all(20),
-              child: Image.asset("assets/dinner-image.png")),
+          Container(padding: EdgeInsets.all(15), child: Image.asset("assets/pre-breakfast-image.png")),
+          Container(padding: EdgeInsets.all(15), child: Image.asset("assets/breakfast-image.png")),
+          Container(padding: EdgeInsets.all(15), child: Image.asset("assets/pre-lunch-image.png")),
+          Container(padding: EdgeInsets.all(15), child: Image.asset("assets/lunch-image.png")),
+          Container(padding: EdgeInsets.all(15), child: Image.asset("assets/evening-snack-image.png")),
+          Container(padding: EdgeInsets.all(20), child: Image.asset("assets/dinner-image.png")),
         ],
         height: MediaQuery.of(context).size.width,
         width: 200,
         imageHeight: 50,
         children: [
-          Container(
-              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
-              child: _widgetWeather(20, 71, 31)),
-          Container(
-              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
-              child: _widgetWeather(15, 75, 55)),
-          Container(
-              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
-              child: _widgetWeather(25, 73, 30)),
-          Container(
-              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
-              child: _widgetWeather(22, 65, 35)),
-          Container(
-              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
-              child: _widgetWeather(21, 55, 32)),
-          Container(
-              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
-              child: _widgetWeather(20, 65, 35)),
+          Container(margin: EdgeInsets.fromLTRB(20, 0, 0, 0), child: _widgetWeather(20, 71, 31)),
+          Container(margin: EdgeInsets.fromLTRB(20, 0, 0, 0), child: _widgetWeather(15, 75, 55)),
+          Container(margin: EdgeInsets.fromLTRB(20, 0, 0, 0), child: _widgetWeather(25, 73, 30)),
+          Container(margin: EdgeInsets.fromLTRB(20, 0, 0, 0), child: _widgetWeather(22, 65, 35)),
+          Container(margin: EdgeInsets.fromLTRB(20, 0, 0, 0), child: _widgetWeather(21, 55, 32)),
+          Container(margin: EdgeInsets.fromLTRB(20, 0, 0, 0), child: _widgetWeather(20, 65, 35)),
         ],
       ),
     );
@@ -247,54 +172,29 @@ class _MyHomePageState extends State<MyHomePage> {
       padding: EdgeInsets.fromLTRB(30, 30, 0, 0),
       child: TimelineView(
         scrollDirection: Axis.vertical,
-        scrollController:
-            ScrollController(initialScrollOffset: 0, keepScrollOffset: true),
+        scrollController: ScrollController(initialScrollOffset: 0, keepScrollOffset: true),
         align: TimelineAlign.rightAlign,
         lineWidth: 4,
         lineColor: Colors.deepOrange,
         imageBorderColor: Colors.deepOrange,
         image: [
-          Container(
-              padding: EdgeInsets.all(15),
-              child: Image.asset("assets/pre-breakfast-image.png")),
-          Container(
-              padding: EdgeInsets.all(15),
-              child: Image.asset("assets/breakfast-image.png")),
-          Container(
-              padding: EdgeInsets.all(15),
-              child: Image.asset("assets/pre-lunch-image.png")),
-          Container(
-              padding: EdgeInsets.all(15),
-              child: Image.asset("assets/lunch-image.png")),
-          Container(
-              padding: EdgeInsets.all(15),
-              child: Image.asset("assets/evening-snack-image.png")),
-          Container(
-              padding: EdgeInsets.all(20),
-              child: Image.asset("assets/dinner-image.png")),
+          Container(padding: EdgeInsets.all(15), child: Image.asset("assets/pre-breakfast-image.png")),
+          Container(padding: EdgeInsets.all(15), child: Image.asset("assets/breakfast-image.png")),
+          Container(padding: EdgeInsets.all(15), child: Image.asset("assets/pre-lunch-image.png")),
+          Container(padding: EdgeInsets.all(15), child: Image.asset("assets/lunch-image.png")),
+          Container(padding: EdgeInsets.all(15), child: Image.asset("assets/evening-snack-image.png")),
+          Container(padding: EdgeInsets.all(20), child: Image.asset("assets/dinner-image.png")),
         ],
         height: 150,
         width: MediaQuery.of(context).size.width,
         imageHeight: 50,
         children: [
-          Container(
-              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
-              child: _widgetWeather(20, 71, 31)),
-          Container(
-              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
-              child: _widgetWeather(15, 75, 55)),
-          Container(
-              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
-              child: _widgetWeather(25, 73, 30)),
-          Container(
-              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
-              child: _widgetWeather(22, 65, 35)),
-          Container(
-              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
-              child: _widgetWeather(21, 55, 32)),
-          Container(
-              margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
-              child: _widgetWeather(20, 65, 35)),
+          Container(margin: EdgeInsets.fromLTRB(20, 0, 0, 0), child: _widgetWeather(20, 71, 31)),
+          Container(margin: EdgeInsets.fromLTRB(20, 0, 0, 0), child: _widgetWeather(15, 75, 55)),
+          Container(margin: EdgeInsets.fromLTRB(20, 0, 0, 0), child: _widgetWeather(25, 73, 30)),
+          Container(margin: EdgeInsets.fromLTRB(20, 0, 0, 0), child: _widgetWeather(22, 65, 35)),
+          Container(margin: EdgeInsets.fromLTRB(20, 0, 0, 0), child: _widgetWeather(21, 55, 32)),
+          Container(margin: EdgeInsets.fromLTRB(20, 0, 0, 0), child: _widgetWeather(20, 65, 35)),
         ],
       ),
     );
@@ -303,31 +203,18 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _timelineviewCenterHorizontal() {
     return TimelineViewCenter(
       scrollDirection: Axis.horizontal,
-      scrollController:
-          ScrollController(initialScrollOffset: 0, keepScrollOffset: true),
+      scrollController: ScrollController(initialScrollOffset: 0, keepScrollOffset: true),
       horizontalAxisAlignment: MainAxisAlignment.spaceEvenly,
       lineWidth: 4,
       lineColor: Colors.deepOrange,
       imageBorderColor: Colors.deepOrange,
       image: [
-        Container(
-            padding: EdgeInsets.all(15),
-            child: Image.asset("assets/pre-breakfast-image.png")),
-        Container(
-            padding: EdgeInsets.all(15),
-            child: Image.asset("assets/breakfast-image.png")),
-        Container(
-            padding: EdgeInsets.all(15),
-            child: Image.asset("assets/pre-lunch-image.png")),
-        Container(
-            padding: EdgeInsets.all(15),
-            child: Image.asset("assets/lunch-image.png")),
-        Container(
-            padding: EdgeInsets.all(15),
-            child: Image.asset("assets/evening-snack-image.png")),
-        Container(
-            padding: EdgeInsets.all(20),
-            child: Image.asset("assets/dinner-image.png")),
+        Container(padding: EdgeInsets.all(15), child: Image.asset("assets/pre-breakfast-image.png")),
+        Container(padding: EdgeInsets.all(15), child: Image.asset("assets/breakfast-image.png")),
+        Container(padding: EdgeInsets.all(15), child: Image.asset("assets/pre-lunch-image.png")),
+        Container(padding: EdgeInsets.all(15), child: Image.asset("assets/lunch-image.png")),
+        Container(padding: EdgeInsets.all(15), child: Image.asset("assets/evening-snack-image.png")),
+        Container(padding: EdgeInsets.all(20), child: Image.asset("assets/dinner-image.png")),
       ],
       height: MediaQuery.of(context).size.width,
       width: 200,
@@ -401,31 +288,18 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _timelineviewCenter() {
     return TimelineViewCenter(
-      scrollController:
-          ScrollController(initialScrollOffset: 0, keepScrollOffset: true),
+      scrollController: ScrollController(initialScrollOffset: 0, keepScrollOffset: true),
       horizontalAxisAlignment: MainAxisAlignment.spaceEvenly,
       lineWidth: 4,
       lineColor: Colors.deepOrange,
       imageBorderColor: Colors.deepOrange,
       image: [
-        Container(
-            padding: EdgeInsets.all(15),
-            child: Image.asset("assets/pre-breakfast-image.png")),
-        Container(
-            padding: EdgeInsets.all(15),
-            child: Image.asset("assets/breakfast-image.png")),
-        Container(
-            padding: EdgeInsets.all(15),
-            child: Image.asset("assets/pre-lunch-image.png")),
-        Container(
-            padding: EdgeInsets.all(15),
-            child: Image.asset("assets/lunch-image.png")),
-        Container(
-            padding: EdgeInsets.all(15),
-            child: Image.asset("assets/evening-snack-image.png")),
-        Container(
-            padding: EdgeInsets.all(20),
-            child: Image.asset("assets/dinner-image.png")),
+        Container(padding: EdgeInsets.all(15), child: Image.asset("assets/pre-breakfast-image.png")),
+        Container(padding: EdgeInsets.all(15), child: Image.asset("assets/breakfast-image.png")),
+        Container(padding: EdgeInsets.all(15), child: Image.asset("assets/pre-lunch-image.png")),
+        Container(padding: EdgeInsets.all(15), child: Image.asset("assets/lunch-image.png")),
+        Container(padding: EdgeInsets.all(15), child: Image.asset("assets/evening-snack-image.png")),
+        Container(padding: EdgeInsets.all(20), child: Image.asset("assets/dinner-image.png")),
       ],
       height: 150,
       width: MediaQuery.of(context).size.width,

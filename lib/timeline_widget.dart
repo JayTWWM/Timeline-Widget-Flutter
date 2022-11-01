@@ -1,7 +1,6 @@
 library timeline_view;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 class TimelineView extends StatefulWidget {
   /// List of images
@@ -38,13 +37,13 @@ class TimelineView extends StatefulWidget {
   final Axis scrollDirection;
 
   TimelineView(
-      {@required this.image,
-      @required this.height,
-      @required this.imageHeight,
+      {required this.image,
+      required this.height,
+      required this.imageHeight,
       this.align = 1,
-      @required this.children,
-      @required this.width,
-      @required this.scrollController,
+      required this.children,
+      required this.width,
+      required this.scrollController,
       this.scrollDirection = Axis.vertical,
       this.lineColor = Colors.black,
       this.imageBorderColor = Colors.black,
@@ -60,7 +59,7 @@ class _TimelineViewState extends State<TimelineView> {
     super.initState();
   }
 
-  double containHeight;
+  late double containHeight;
 
   @override
   Widget build(BuildContext context) {
@@ -74,9 +73,8 @@ class _TimelineViewState extends State<TimelineView> {
               width: widget.width,
               height: widget.height,
               child: Row(
-                mainAxisAlignment: widget.align == TimelineAlign.leftAlign
-                    ? MainAxisAlignment.end
-                    : MainAxisAlignment.start,
+                mainAxisAlignment:
+                    widget.align == TimelineAlign.leftAlign ? MainAxisAlignment.end : MainAxisAlignment.start,
                 children: [
                   widget.align != TimelineAlign.rightAlign
                       ? Center(
@@ -94,20 +92,15 @@ class _TimelineViewState extends State<TimelineView> {
                       Center(
                         child: Container(
                           decoration: BoxDecoration(
-                            border: Border.all(
-                                width: 2, color: widget.imageBorderColor),
-                            borderRadius:
-                                BorderRadius.circular(widget.imageHeight / 2),
+                            border: Border.all(width: 2, color: widget.imageBorderColor),
+                            borderRadius: BorderRadius.circular(widget.imageHeight / 2),
                           ),
                           height: widget.imageHeight,
                           width: widget.imageHeight,
                           child: ClipRRect(
-                            borderRadius:
-                                BorderRadius.circular(widget.imageHeight / 2),
-                            child: FittedBox(
-                                fit: BoxFit.fitHeight,
-                                child: widget
-                                    .image[widget.children.indexOf(child)]),
+                            borderRadius: BorderRadius.circular(widget.imageHeight / 2),
+                            child:
+                                FittedBox(fit: BoxFit.fitHeight, child: widget.image[widget.children.indexOf(child)]),
                           ),
                         ),
                       ),
@@ -137,9 +130,8 @@ class _TimelineViewState extends State<TimelineView> {
               width: widget.width,
               height: widget.height,
               child: Column(
-                mainAxisAlignment: widget.align == TimelineAlign.leftAlign
-                    ? MainAxisAlignment.end
-                    : MainAxisAlignment.start,
+                mainAxisAlignment:
+                    widget.align == TimelineAlign.leftAlign ? MainAxisAlignment.end : MainAxisAlignment.start,
                 children: [
                   widget.align != TimelineAlign.rightAlign
                       ? Center(
@@ -157,20 +149,15 @@ class _TimelineViewState extends State<TimelineView> {
                       Center(
                         child: Container(
                           decoration: BoxDecoration(
-                            border: Border.all(
-                                width: 2, color: widget.imageBorderColor),
-                            borderRadius:
-                                BorderRadius.circular(widget.imageHeight / 2),
+                            border: Border.all(width: 2, color: widget.imageBorderColor),
+                            borderRadius: BorderRadius.circular(widget.imageHeight / 2),
                           ),
                           height: widget.imageHeight,
                           width: widget.imageHeight,
                           child: ClipRRect(
-                            borderRadius:
-                                BorderRadius.circular(widget.imageHeight / 2),
-                            child: FittedBox(
-                                fit: BoxFit.fitHeight,
-                                child: widget
-                                    .image[widget.children.indexOf(child)]),
+                            borderRadius: BorderRadius.circular(widget.imageHeight / 2),
+                            child:
+                                FittedBox(fit: BoxFit.fitHeight, child: widget.image[widget.children.indexOf(child)]),
                           ),
                         ),
                       ),
@@ -232,13 +219,13 @@ class TimelineViewCenter extends StatefulWidget {
   final Axis scrollDirection;
 
   TimelineViewCenter(
-      {@required this.image,
-      @required this.height,
-      @required this.imageHeight,
-      @required this.leftChildren,
-      @required this.rightChildren,
-      @required this.width,
-      @required this.scrollController,
+      {required this.image,
+      required this.height,
+      required this.imageHeight,
+      required this.leftChildren,
+      required this.rightChildren,
+      required this.width,
+      required this.scrollController,
       this.scrollDirection = Axis.vertical,
       this.horizontalAxisAlignment = MainAxisAlignment.center,
       this.lineColor = Colors.black,
@@ -255,7 +242,7 @@ class _TimelineViewCenterState extends State<TimelineViewCenter> {
     super.initState();
   }
 
-  double containHeight;
+  late double containHeight;
 
   @override
   Widget build(BuildContext context) {
@@ -274,9 +261,7 @@ class _TimelineViewCenterState extends State<TimelineViewCenter> {
                 children: [
                   Container(
                     width: (widget.width - widget.imageHeight) / 2,
-                    child: Center(
-                        child: widget
-                            .leftChildren[widget.image.indexOf(imageChild)]),
+                    child: Center(child: widget.leftChildren[widget.image.indexOf(imageChild)]),
                   ),
                   Container(
                     width: widget.imageHeight,
@@ -291,18 +276,14 @@ class _TimelineViewCenterState extends State<TimelineViewCenter> {
                         Center(
                           child: Container(
                             decoration: BoxDecoration(
-                              border: Border.all(
-                                  width: 2, color: widget.imageBorderColor),
-                              borderRadius:
-                                  BorderRadius.circular(widget.imageHeight / 2),
+                              border: Border.all(width: 2, color: widget.imageBorderColor),
+                              borderRadius: BorderRadius.circular(widget.imageHeight / 2),
                             ),
                             height: widget.imageHeight,
                             width: widget.imageHeight,
                             child: ClipRRect(
-                              borderRadius:
-                                  BorderRadius.circular(widget.imageHeight / 2),
-                              child: FittedBox(
-                                  fit: BoxFit.fitHeight, child: imageChild),
+                              borderRadius: BorderRadius.circular(widget.imageHeight / 2),
+                              child: FittedBox(fit: BoxFit.fitHeight, child: imageChild),
                             ),
                           ),
                         ),
@@ -316,9 +297,7 @@ class _TimelineViewCenterState extends State<TimelineViewCenter> {
                   ),
                   Container(
                       width: (widget.width - widget.imageHeight) / 2,
-                      child: Center(
-                          child: widget.rightChildren[
-                              widget.image.indexOf(imageChild)])),
+                      child: Center(child: widget.rightChildren[widget.image.indexOf(imageChild)])),
                 ],
               ));
         }).toList(),
@@ -338,9 +317,7 @@ class _TimelineViewCenterState extends State<TimelineViewCenter> {
                 children: [
                   Container(
                     width: (widget.height - widget.imageHeight) / 2,
-                    child: Center(
-                        child: widget
-                            .leftChildren[widget.image.indexOf(imageChild)]),
+                    child: Center(child: widget.leftChildren[widget.image.indexOf(imageChild)]),
                   ),
                   Container(
                     height: widget.imageHeight,
@@ -355,18 +332,14 @@ class _TimelineViewCenterState extends State<TimelineViewCenter> {
                         Center(
                           child: Container(
                             decoration: BoxDecoration(
-                              border: Border.all(
-                                  width: 2, color: widget.imageBorderColor),
-                              borderRadius:
-                                  BorderRadius.circular(widget.imageHeight / 2),
+                              border: Border.all(width: 2, color: widget.imageBorderColor),
+                              borderRadius: BorderRadius.circular(widget.imageHeight / 2),
                             ),
                             height: widget.imageHeight,
                             width: widget.imageHeight,
                             child: ClipRRect(
-                              borderRadius:
-                                  BorderRadius.circular(widget.imageHeight / 2),
-                              child: FittedBox(
-                                  fit: BoxFit.fitHeight, child: imageChild),
+                              borderRadius: BorderRadius.circular(widget.imageHeight / 2),
+                              child: FittedBox(fit: BoxFit.fitHeight, child: imageChild),
                             ),
                           ),
                         ),
@@ -380,9 +353,7 @@ class _TimelineViewCenterState extends State<TimelineViewCenter> {
                   ),
                   Container(
                       width: (widget.height - widget.imageHeight) / 2,
-                      child: Center(
-                          child: widget.rightChildren[
-                              widget.image.indexOf(imageChild)])),
+                      child: Center(child: widget.rightChildren[widget.image.indexOf(imageChild)])),
                 ],
               ));
         }).toList(),
