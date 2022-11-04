@@ -1,13 +1,10 @@
 name: timeline_widget
 description: This pub creates beautiful timeline views in six formats (left, right, center (horizontal and vertical) , top, bottom) with customizable image, widgets, color, constraints etc.
-version: 1.0.6
-authors:
-  - Jay Mehta <jaymehta262001@gmail.com>
-  - Vaidehi Vatsaraj <vvatsaraj0904@gmail.com>
+version: 2.0.0
 homepage: https://github.com/JayTWWM/Timeline-Widget-Flutter
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: '>=2.18.1 <3.0.0'
 
 dependencies:
   flutter:
